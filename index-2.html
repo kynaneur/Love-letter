@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Letter</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+background:linear-gradient(#ffe9f2,#fff8fb);
+font-family:Poppins,sans-serif;
+display:flex;justify-content:center;align-items:center;
+min-height:100vh;padding:20px;
+}
+.wrap{text-align:center}
+.tip{color:#8f7580;margin-bottom:18px}
+.envelope{
+position:relative;
+width:340px;height:220px;
+cursor:pointer;
+margin:auto;
+}
+.base{
+position:absolute;inset:0;
+background:#ffd6e6;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+.flap{
+position:absolute;
+left:0;top:0;
+width:100%;height:110px;
+background:#ffc4d8;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transform-origin:top;
+transition:.8s;
+z-index:5;
+}
+.seal{
+position:absolute;
+left:50%;top:88px;
+transform:translateX(-50%);
+width:46px;height:46px;
+background:#ff78a8;
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+color:#fff;font-size:20px;
+z-index:6;
+transition:.3s;
+}
+.letter{
+position:absolute;
+left:50%;top:28px;
+transform:translateX(-50%);
+width:290px;
+background:#fff;
+border-radius:14px;
+padding:22px;
+box-shadow:0 12px 25px rgba(0,0,0,.18);
+opacity:0;
+pointer-events:none;
+transition:.8s;
+z-index:1;
+}
+.open .flap{transform:rotateX(180deg)}
+.open .seal{opacity:0}
+.open .letter{
+top:-20px;
+opacity:1;
+pointer-events:auto;
+}
+.letter h2{font-family:Caveat;font-size:36px;color:#d85f91;margin-bottom:10px}
+.letter p{font-size:14px;line-height:1.8;color:#555;margin-bottom:14px}
+.sign{text-align:right;color:#d85f91;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="tip">💌 Click the envelope</div>
+<div class="envelope" id="env">
+<div class="letter">
+<h2>Hi sayangkuw 💙,</h2>
+<p>Aku tau kamu lagi capek dan banyak hal yang harus kamu hadapin.</p>
+<p><b>But I'm so proud of you.</b><br>Thank you for always trying, even when it's hard.</p>
+<p>Jangan lupa jaga kesehatan, karna aku jadi khawatir kalau kamu nda baik-baik aja apalagi pas jauh dari aku, <b>and please get enough rest sayangg.</b></p>
+<p style="text-align:center"><b>I love you, always.</b></p>
+<div class="sign">— Via 🤍</div>
+</div>
+<div class="base"></div>
+<div class="flap"></div>
+<div class="seal">❤</div>
+</div>
+</div>
+<script>
+document.getElementById("env").onclick=function(){
+ this.classList.toggle("open");
+}
+</script>
+</body>
+</html>
